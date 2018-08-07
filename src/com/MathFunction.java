@@ -32,6 +32,7 @@ public class MathFunction {
     /**
      * Set default: x = 3  and caseodd = 3.
      */
+    @SuppressWarnings("unused")
     public MathFunction() {
         this.x = 3L;
         this.caseOdd = 3;
@@ -40,7 +41,7 @@ public class MathFunction {
     /**
      * Counting return next "x". Falling down by 2 and 3.
      */
-    public void getNextX() {
+    private void getNextX() {
        this.x = this.x % 2 == 0 ?
                this.x / 2
                : this.x % 3 == 0 ?
@@ -53,15 +54,15 @@ public class MathFunction {
      * @param x variable for checking.
      * @return True if "x" equal 1 else false.
      */
-    public boolean checkCondition(Long x) {
-        return x == 1 ? true : false;
+    private boolean checkCondition(Long x) {
+        return x == 1;
     }
 
     /**
      * Start counting function for set "x" and "caseOdd". Return true if function hasn't cycle, else false.
      * @return true if function hasn't cycle, else false.
      */
-    public boolean startFunction(Long x){
+    private boolean startFunction(Long x){
         boolean bool = true;
         this.x = x;
         while (!this.checkCondition(this.x)){
@@ -83,7 +84,7 @@ public class MathFunction {
      * Checking function for cycle. Return true if has cycle else false.
      * @return true if has cycle or x's less then 0 else false.
      */
-    public boolean checkCycle() {
+    private boolean checkCycle() {
         boolean bool = false;
         if (this.cycle.containsKey(x) || x < 0) {
             bool = true;
@@ -98,7 +99,7 @@ public class MathFunction {
 
     /**
      * Iterating method.
-     * Checking first 100 numbers from 3 to 99 step 2 (thus numbers used in case odd and  x%3 != 0) and x from 3 to 1_000_000 step 1.
+     * Checking first 100 numbers from 3 to 99 step 2 (this numbers used in case odd and  x%3 != 0) and x from 3 to 1_000_000 step 1.
      */
     public void iterating() {
         for (; this.caseOdd < 100; this.caseOdd += 2) {
