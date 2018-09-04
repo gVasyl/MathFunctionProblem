@@ -45,8 +45,10 @@ public class MathFunction {
        this.x = this.x % 2 == 0 ?
                this.x / 2
                : this.x % 3 == 0 ?
-                       this.x / 3
-                       :(caseOdd * this.x + 1) / 2;
+                    this.x / 3
+                    :this.x % 5 == 0 ?
+                        this.x / 5
+                        :(caseOdd * this.x + 1) / 2;
     }
 
     /**
@@ -102,8 +104,7 @@ public class MathFunction {
      * Checking first 100 numbers from 3 to 99 step 2 (this numbers used in case odd and  x%3 != 0) and x from 3 to 1_000_000 step 1.
      */
     public void iterating() {
-        for (; this.caseOdd < 100; this.caseOdd += 2) {
-            //this.caseOdd = 5;
+        for (; this.caseOdd < 10; this.caseOdd += 2) {
             for (Long x = 1L; x < 1_000_000; x++) {
                 boolean bool = this.startFunction(x);
                 System.out.println(this.caseOdd + "\t" + bool + " " + x);
